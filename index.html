@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greeting App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    h1 {
+      color: #333;
+    }
+    p {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="greeting"></h1>
+  <p id="message"></p>
+
+  <script>
+    // Функция для получения параметров из URL
+    function getQueryParams() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        name: params.get('name') || 'Recruto',
+        message: params.get('message') || 'Давай дружить!'
+      };
+    }
+
+    // Получаем параметры
+    const { name, message } = getQueryParams();
+
+    // Обновляем содержимое страницы
+    document.getElementById('greeting').textContent = `Hello ${name}!`;
+    document.getElementById('message').textContent = message;
+  </script>
+</body>
+</html>
